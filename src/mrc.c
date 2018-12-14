@@ -424,6 +424,8 @@ int write_mrc_header(FILE *fp, mrcheaderdata *m){
   for(i = 0; i < 1024 + m->next; i++){
     fputc(0, fp);
   }
+  int2b machst = machine_is_le() ? 0x4444 : 0x1111;  /* as recommended at http://www.ccpem.ac.uk/mrc_format/mrc2014.php#note11 */
+
   if(write_int4b_field(fp, m->size[0], 0, m->rev)) return 1;
   if(write_int4b_field(fp, m->size[1], 4, m->rev)) return 1;
   if(write_int4b_field(fp, m->size[2], 8, m->rev)) return 1;
@@ -446,7 +448,7 @@ int write_mrc_header(FILE *fp, mrcheaderdata *m){
   if(write_int4b_field(fp, m->next, 92, m->rev)) return 1;
   if(fseek(fp, 208, SEEK_SET)) return 1;
   if(EOF == fputs("MAP ", fp)) return 1;
-  if(write_int2b_field(fp, 0x1144, 212, m->rev)) return 1;  /* flag for big- or little endian */
+  if(write_int2b_field(fp, machst, 212, m->rev)) return 1;  /* flag for big- or little endian */
   if(write_int4b_field(fp, 1, 220, m->rev)) return 1;       /* number of labels */
   if(fseek(fp, 224, SEEK_SET)) return 1;
   if(EOF == fputs("Created by TEM-simulator, version                                               ", fp)) return 1;
