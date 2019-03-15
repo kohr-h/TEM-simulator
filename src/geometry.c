@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -222,7 +222,7 @@ int geometry_check_input(geometry *g){
   }
   errors = get_param_string(g->param, PAR_GEOM_ERRORS);
   if(0 == strcmp(errors, PAR_GEOM_ERRORS__RANDOM)){
-    if(require_param(g->param, PAR_TILT_ERR) || require_param(g->param, PAR_ALIGN_ERR_ROT) 
+    if(require_param(g->param, PAR_TILT_ERR) || require_param(g->param, PAR_ALIGN_ERR_ROT)
        || require_param(g->param, PAR_ALIGN_ERR_TR)) return 1;
   }
   else if(0 == strcmp(errors, PAR_GEOM_ERRORS__FILE)){
@@ -470,4 +470,3 @@ int get_sample_geom(matrix *pm, double pos[3], sample *s, geometry *g, long tilt
   }
   return 0;
 }
-

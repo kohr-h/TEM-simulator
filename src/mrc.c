@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -47,7 +47,7 @@ int read_array_float4b_raw(array *a, const char *fn, const char *axis_order, int
   if(fp == NULL) return 1;
   ret = read_float4b_data(a->data, fp, size, steps, rev);
   fclose(fp);
-  return ret;  
+  return ret;
 }
 
 /****************************************************************************/

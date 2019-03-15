@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -292,7 +292,7 @@ array_data_type *get_array_entry_ptr(array *a, array_index_type i, array_index_t
   else {
     return NULL;
   }
-}  
+}
 
 /****************************************************************************/
 
@@ -561,7 +561,7 @@ array_data_type boundary_mean_array(const array *a){
 	  ad++;
 	  n++;
 	}
-      }   
+      }
     }
   }
   if(n > 0){

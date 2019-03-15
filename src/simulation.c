@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -287,7 +287,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->detector[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->detector[i]->param;
     }
   }
@@ -301,7 +301,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->electronbeam[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->electronbeam[i]->param;
     }
   }
@@ -315,7 +315,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->geometry[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->geometry[i]->param;
     }
   }
@@ -329,7 +329,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->optics[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->optics[i]->param;
     }
   }
@@ -343,10 +343,10 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->particle[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->particle[i]->param;
     }
-  }  
+  }
   else if(0 == strcmp(class, TYPE_PARTICLESET)){
     i = find_particleset(s, name, no_match);
     if(i < 0){
@@ -357,7 +357,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->particleset[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->particleset[i]->param;
     }
   }
@@ -371,7 +371,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->sample[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->sample[i]->param;
     }
   }
@@ -385,7 +385,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
         return s->volume[n]->param;
       }
     }
-    else if(reuse){      
+    else if(reuse){
       return s->volume[i]->param;
     }
   }

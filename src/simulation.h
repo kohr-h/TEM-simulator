@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -48,10 +48,10 @@ void delete_simulation(simulation *s);
 /***********************************************************************
  * Function:  simulation_init
  * Purpose:   Do initializations necessary to make simulation struct ready
- *            for use in computations once parameters have been read from 
- *            input file. Calling simulation_init on a geometry object 
- *            which is already initialized has no effect. Once the 
- *            simulation object has been initialized, input parameters can 
+ *            for use in computations once parameters have been read from
+ *            input file. Calling simulation_init on a geometry object
+ *            which is already initialized has no effect. Once the
+ *            simulation object has been initialized, input parameters can
  *            not be changed.
  * Arguments: s - Pointer to simulation struct to be initialized.
  * Return:    0 on success, nonzero on failure.
@@ -74,7 +74,7 @@ void simulation_write_log(simulation *s);
  * Function:  simulation_create_log
  * Purpose:   Create a log file to be used in the simulation. If the name
  *            of a log file is specified in the input, that file is used,
- *            overwriting the file if it already exists. If no file is 
+ *            overwriting the file if it already exists. If no file is
  *            specified, a unique name is generated, and it is checked
  *            that the file does not already exist.
  * Arguments: s - Pointer to simulation struct.
@@ -102,16 +102,16 @@ int read_input_data(simulation *s, char *fn);
 /***********************************************************************
  * Function:  add_simcomp
  * Purpose:   Add a simulation component to the simulation.
- * Arguments: s - Pointer to simulation struct to which a component is 
+ * Arguments: s - Pointer to simulation struct to which a component is
  *            added.
  *            class - String identifying the type of component.
  *            name - Name of the component.
  *            reuse - If reuse is nonzero, and a simulation component
  *            with the same name and type already exists, it is reused.
- *            If reuse is zero, and a simulation component with the 
+ *            If reuse is zero, and a simulation component with the
  *            same name and type already exists, no component is added
  *            and a null pointer is returned. The names of two components
- *            are only considered to be the same if the name is a 
+ *            are only considered to be the same if the name is a
  *            nonempty string.
  * Return:    Pointer to the parameter table of the added component
  */
@@ -122,7 +122,7 @@ param_table *add_simcomp(simulation *s, const char *class, const char *name, int
 /***********************************************************************
  * Function:  remove_simcomp
  * Purpose:   Remove a simulation component from the simulation.
- * Arguments: s - Pointer to simulation struct from which a component is 
+ * Arguments: s - Pointer to simulation struct from which a component is
  *            removed.
  *            class - String identifying the type of component.
  *            name - Name of the component. If the name is an empty
@@ -139,9 +139,9 @@ int remove_simcomp(simulation *s, const char *class, const char *name);
  * Function:  get_detector
  * Purpose:   Get a pointer to the detector component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of detector component. If name is an empty 
+ *            name - name of detector component. If name is an empty
  *            string and there is just one detector component, a pointer
- *            to it is returned. Otherwise, if there is a detector 
+ *            to it is returned. Otherwise, if there is a detector
  *            component with the given name, a pointer to it is returned.
  *            In all other cases a null pointer is returned.
  */
@@ -153,7 +153,7 @@ detector *get_detector(simulation *s, const char *name);
  * Function:  get_electronbeam
  * Purpose:   Get a pointer to the electronbeam component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of electronbeam component. If name is an empty 
+ *            name - name of electronbeam component. If name is an empty
  *            string and there is just one electronbeam component, a pointer
  *            to it is returned. Otherwise, if there is an electronbeam
  *            component with the given name, a pointer to it is returned.
@@ -167,7 +167,7 @@ electronbeam *get_electronbeam(simulation *s, const char *name);
  * Function:  get_geometry
  * Purpose:   Get a pointer to the geometry component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of geometry component. If name is an empty 
+ *            name - name of geometry component. If name is an empty
  *            string and there is just one geometry component, a pointer
  *            to it is returned. Otherwise, if there is a geometry
  *            component with the given name, a pointer to it is returned.
@@ -181,7 +181,7 @@ geometry *get_geometry(simulation *s, const char *name);
  * Function:  get_optics
  * Purpose:   Get a pointer to the optics component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of optics component. If name is an empty 
+ *            name - name of optics component. If name is an empty
  *            string and there is just one optics component, a pointer
  *            to it is returned. Otherwise, if there is an optics
  *            component with the given name, a pointer to it is returned.
@@ -195,7 +195,7 @@ optics *get_optics(simulation *s, const char *name);
  * Function:  get_particle
  * Purpose:   Get a pointer to the particle component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of particle component. If name is an empty 
+ *            name - name of particle component. If name is an empty
  *            string and there is just one particle component, a pointer
  *            to it is returned. Otherwise, if there is a particle
  *            component with the given name, a pointer to it is returned.
@@ -209,7 +209,7 @@ particle *get_particle(simulation *s, const char *name);
  * Function:  get_particleset
  * Purpose:   Get a pointer to the particleset component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of particle component. If name is an empty 
+ *            name - name of particle component. If name is an empty
  *            string and there is just one particleset component, a pointer
  *            to it is returned. Otherwise, if there is a particleset
  *            component with the given name, a pointer to it is returned.
@@ -223,7 +223,7 @@ particleset *get_particleset(simulation *s, const char *name);
  * Function:  get_sample
  * Purpose:   Get a pointer to the sample component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of sample component. If name is an empty 
+ *            name - name of sample component. If name is an empty
  *            string and there is just one sample component, a pointer
  *            to it is returned. Otherwise, if there is a sample
  *            component with the given name, a pointer to it is returned.
@@ -237,7 +237,7 @@ sample *get_sample(simulation *s, const char *name);
  * Function:  get_volume
  * Purpose:   Get a pointer to the volume component with a given name.
  * Arguments: s - Pointer to simulation struct.
- *            name - name of volume component. If name is an empty 
+ *            name - name of volume component. If name is an empty
  *            string and there is just one volume component, a pointer
  *            to it is returned. Otherwise, if there is a volume
  *            component with the given name, a pointer to it is returned.
@@ -260,7 +260,7 @@ int generate_micrographs(simulation *s);
 
 /***********************************************************************
  * Function:  generate_volumes
- * Purpose:   Generate volume maps for all volume components in the 
+ * Purpose:   Generate volume maps for all volume components in the
  *            simulation struct.
  * Arguments: s - Pointer to simulation struct.
  * Return:    0 on success, nonzero on failure.
@@ -271,7 +271,7 @@ int generate_volumes(simulation *s);
 
 /***********************************************************************
  * Function:  generate_particle_maps
- * Purpose:   Generate particle maps for all particle components in the 
+ * Purpose:   Generate particle maps for all particle components in the
  *            simulation struct.
  * Arguments: s - Pointer to simulation struct.
  * Return:    0 on success, nonzero on failure.
@@ -282,7 +282,7 @@ int generate_particle_maps(simulation *s);
 
 /***********************************************************************
  * Function:  simulation_run
- * Purpose:   Run all simulations specified by input parameters 
+ * Purpose:   Run all simulations specified by input parameters
  *            PAR_GENERATE_MICROGRAPHS, PAR_GENERATE_PARTICLE_MAPS, and
  *            PAR_GENERATE_VOLUMES.
  * Arguments: s - Pointer to simulation struct.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -48,27 +48,27 @@ void delete_particle(particle *p);
 /***********************************************************************
  * Function:  particle_init
  * Purpose:   Do initializations necessary to make particle struct ready
- *            for use in computations once parameters have been from 
- *            input file. Calling particle_init on a particle object 
- *            which is already initialized has no effect. Once the 
- *            particle object has been initialized, input parameters can 
+ *            for use in computations once parameters have been from
+ *            input file. Calling particle_init on a particle object
+ *            which is already initialized has no effect. Once the
+ *            particle object has been initialized, input parameters can
  *            not be changed.
  * Arguments: p - Pointer to particle struct to be initialized.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
 
-int particle_init(particle *p, 
+int particle_init(particle *p,
                   simulation *sim);
 
 
 /***********************************************************************
  * Function:  particle_reset
- * Purpose:   Reset particle object to the uninitialized state and 
+ * Purpose:   Reset particle object to the uninitialized state and
  *            release memory allocated by particle_init. Has no effect
  *            if particle object is already in the uninitialized state.
- *            After particle_reset has been called, particle_init can 
+ *            After particle_reset has been called, particle_init can
  *            be used to initialize particle object again, possibly with
  *            different input parameters.
  * Arguments: p - Pointer to particle struct to be reset.
@@ -88,7 +88,7 @@ int particle_write_log(particle *p);
 
 /***********************************************************************
  * Function:  particle_project
- * Purpose:   Project potential map of one particle onto phase shift 
+ * Purpose:   Project potential map of one particle onto phase shift
  *            plane in wavefunction struct.
  * Arguments: p - Pointer to particle struct.
  *            wf - Pointer to wavefunction struct.
@@ -98,9 +98,9 @@ int particle_write_log(particle *p);
  * Return:    0 on success, nonzero on failure.
  */
 
-int particle_project(particle *p, 
-                     wavefunction *wf, 
-                     matrix *proj_matrix, 
+int particle_project(particle *p,
+                     wavefunction *wf,
+                     matrix *proj_matrix,
                      double pos[3]);
 
 
@@ -113,13 +113,13 @@ int particle_project(particle *p,
  *            pm - 3x3 matrix mapping particle coordinate system
  *            to microscope coordinate system.
  *            pos - coordinates of particle origin.
- * Return:    Nonzero if projection of particle hits wavefunction area, 
+ * Return:    Nonzero if projection of particle hits wavefunction area,
  *            0 otherwise.
  */
 
-int particle_hits_wavefunction(particle *p, 
-                               wavefunction *wf, 
-                               matrix *pm, 
+int particle_hits_wavefunction(particle *p,
+                               wavefunction *wf,
+                               matrix *pm,
                                double pos[3]);
 
 #endif

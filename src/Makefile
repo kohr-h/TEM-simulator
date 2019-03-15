@@ -4,15 +4,15 @@ CC = /usr/bin/gcc
 # compiler flags, assuming gcc compiler is used.
 CFLAGS = -Wall -pedantic -O3
 
-# If the C compiler does not find the FFTW header and library files, 
+# If the C compiler does not find the FFTW header and library files,
 # replace the line above with something like this:
 # CFLAGS = -Wall -pedantic -O3 -I. -I<FFTW directory>/api -L<FFTW directory>/.libs
 #
 # The names of the appropriate directories seem to have changed between different
-# FFTW versions. 
+# FFTW versions.
 #
-# The -I flag indicates directories that are searched for header files to be included 
-# in the compilation. It should be followed by the path to a directory containing 
+# The -I flag indicates directories that are searched for header files to be included
+# in the compilation. It should be followed by the path to a directory containing
 # a file called fftw3.h
 #
 # If the wrong include directory is given, output from the compiler will contain
@@ -21,7 +21,7 @@ CFLAGS = -Wall -pedantic -O3
 #
 # The -L flag indicates directories where the linker looks for libraries to link.
 # It should be followed by the path to a directory containing a file called libfftw3.a
-# 
+#
 # If the -I flag is correct, but the -L flag is wrong, output from the compiler will
 # contain the error message
 # ld: library not found for -lfftw3
@@ -51,7 +51,7 @@ misc.o: misc.c misc.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 mrc.o: mrc.c mrc.h array.h macros.h log.h misc.h
 	$(CC) -c $(CFLAGS) -o $@ $<
-optics.o: optics.c optics.h geometry.h input.h log.h macros.h matrix.h misc.h random.h simulation.h 
+optics.o: optics.c optics.h geometry.h input.h log.h macros.h matrix.h misc.h random.h simulation.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 particle.o: particle.c particle.h array.h electronbeam.h functions.h geometry.h input.h log.h macros.h matrix.h misc.h mrc.h pdb.h random.h sample.h simulation.h structs.h wavefunction.h
 	$(CC) -c $(CFLAGS) -o $@ $<

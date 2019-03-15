@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -47,27 +47,27 @@ void delete_geometry(geometry *g);
 /***********************************************************************
  * Function:  geometry_init
  * Purpose:   Do initializations necessary to make geometry struct ready
- *            for use in computations once parameters have been read from 
- *            input file. Calling geometry_init on a geometry object 
- *            which is already initialized has no effect. Once the 
- *            geometry object has been initialized, input parameters can 
+ *            for use in computations once parameters have been read from
+ *            input file. Calling geometry_init on a geometry object
+ *            which is already initialized has no effect. Once the
+ *            geometry object has been initialized, input parameters can
  *            not be changed.
  * Arguments: g - Pointer to geometry struct to be initialized.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
 
-int geometry_init(geometry *g, 
+int geometry_init(geometry *g,
                   simulation *sim);
 
 
 /***********************************************************************
  * Function:  geometry_reset
- * Purpose:   Reset geometry object to the uninitialized state and 
+ * Purpose:   Reset geometry object to the uninitialized state and
  *            release memory allocated by geometry_init. Has no effect
  *            if geometry object is already in the uninitialized state.
- *            After geometry_reset has been called, geometry_init can 
+ *            After geometry_reset has been called, geometry_init can
  *            be used to initialize geometry object again, possibly with
  *            different input parameters.
  * Arguments: g - Pointer to geometry struct to be reset.
@@ -90,7 +90,7 @@ int geometry_write_log(geometry *g);
  * Function:  set_proj_matrix
  * Purpose:   Set entries in projection matrix mapping the sample coordinate
  *            system to the microscope coordinate system for a given tilt.
- * Arguments: pm - Pointer to 3x3 matrix. On successful return is the 
+ * Arguments: pm - Pointer to 3x3 matrix. On successful return is the
  *            mapping matrix from sample coordinate system to microscope
  *            coordinate system.
  *            g - Pointer to geometry struct.
@@ -98,20 +98,20 @@ int geometry_write_log(geometry *g);
  * Return:    0 on success, nonzero on failure.
  */
 
-int set_proj_matrix(matrix *pm, 
-                    geometry *g, 
+int set_proj_matrix(matrix *pm,
+                    geometry *g,
                     long tilt);
 
 
 /***********************************************************************
  * Function:  get_particle_geom
- * Purpose:   Get the mapping from particle coordinate system to microscope 
+ * Purpose:   Get the mapping from particle coordinate system to microscope
  *            coordinate system for a given particle and a given tilt.
- * Arguments: pm - Pointer to 3x3 matrix. On successful return is the 
- *            mapping matrix from particle coordinate system to 
+ * Arguments: pm - Pointer to 3x3 matrix. On successful return is the
+ *            mapping matrix from particle coordinate system to
  *            microscope coordinate system.
  *            pos - Array of 3 doubles. On successful return, contains the
- *            coordinates of the particle origin in the microscope 
+ *            coordinates of the particle origin in the microscope
  *            coordinate system.
  *            ps - Pointer to particleset struct to which the particle
  *            belongs.
@@ -121,23 +121,23 @@ int set_proj_matrix(matrix *pm,
  * Return:    0 on success, nonzero on failure.
  */
 
-int get_particle_geom(matrix *pm, 
-                      double pos[3], 
-                      particleset *ps, 
-                      long i, 
-                      geometry *g, 
+int get_particle_geom(matrix *pm,
+                      double pos[3],
+                      particleset *ps,
+                      long i,
+                      geometry *g,
                       long tilt);
 
 
 /***********************************************************************
  * Function:  get_sample_geom
- * Purpose:   Get the mapping from sample coordinate system to microscope 
+ * Purpose:   Get the mapping from sample coordinate system to microscope
  *            coordinate system for a given tilt.
- * Arguments: pm - Pointer to 3x3 matrix. On successful return is the 
- *            mapping matrix from sample coordinate system to 
+ * Arguments: pm - Pointer to 3x3 matrix. On successful return is the
+ *            mapping matrix from sample coordinate system to
  *            microscope coordinate system.
  *            pos - Array of 3 doubles. On successful return, contains the
- *            coordinates of the sample origin in the microscope 
+ *            coordinates of the sample origin in the microscope
  *            coordinate system.
  *            s - Pointer to sample.
  *            i - number of the particle in the particleset.
@@ -146,10 +146,10 @@ int get_particle_geom(matrix *pm,
  * Return:    0 on success, nonzero on failure.
  */
 
-int get_sample_geom(matrix *pm, 
-                    double pos[3], 
-                    sample *s, 
-                    geometry *g, 
+int get_sample_geom(matrix *pm,
+                    double pos[3],
+                    sample *s,
+                    geometry *g,
                     long tilt);
 
 #endif

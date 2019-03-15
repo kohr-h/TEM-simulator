@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -259,7 +259,7 @@ int electronbeam_read_dose_from_file(electronbeam *ed, long ntilts){
   }
   if(read_matrix_text(&(ed->dose), get_param_string(ed->param, PAR_DOSE_FILE_IN))) return 1;
   if(shrink_matrix(&(ed->dose), ntilts, 1)){
-    WARNING("Too few dose data found in file %s to match ntilts = %i.\n", 
+    WARNING("Too few dose data found in file %s to match ntilts = %i.\n",
 	    get_param_string(ed->param, PAR_DOSE_FILE_IN), (int)ntilts);
     return 1;
   }
@@ -286,7 +286,7 @@ double wave_number(double acc_en){
 
 double potential_conv_factor(double acc_en){
   return 4*M_PI*M_PI*ELECTRON_MASS*ELEMENTARY_CHARGE/PLANCKS_CONSTANT_SQ
-    * POTENTIAL_UNIT * (1 + acc_en/ELEC_REST_ENERGY)/wave_number(acc_en); 
+    * POTENTIAL_UNIT * (1 + acc_en/ELEC_REST_ENERGY)/wave_number(acc_en);
 }
 
 /****************************************************************************/

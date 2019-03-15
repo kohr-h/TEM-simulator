@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -59,22 +59,22 @@ typedef struct {
 /***********************************************************************
  * Function:  new_param_table
  * Purpose:   Allocate memory for a new param_table with space for n
- *            parameters and return a pointer to it. Initially, none of 
- *            the parameters is used. The number of parameters can not 
+ *            parameters and return a pointer to it. Initially, none of
+ *            the parameters is used. The number of parameters can not
  *            be changed once the table has been created.
  * Arguments: n - Maximum number of parameters that can be stored in table.
- *            class - The class of the table, used in log files and error 
- *                    messages. The intention is that all tables of the 
+ *            class - The class of the table, used in log files and error
+ *                    messages. The intention is that all tables of the
  *                    same class should contain the same parameters
  *                    (but they can be assigned different values).
- *            name - Name of the table, used for log files and error 
- *                   messages. The intention is that class and name 
+ *            name - Name of the table, used for log files and error
+ *                   messages. The intention is that class and name
  *                   together should be unique for each table.
  * Return:    Pointer to allocated table.
  */
 
-param_table *new_param_table(int n, 
-                             const char *class, 
+param_table *new_param_table(int n,
+                             const char *class,
                              const char *name);
 
 
@@ -90,21 +90,21 @@ void delete_param_table(param_table *P);
 
 /***********************************************************************
  * Function:  param_table_set_lock
- * Purpose:   Set lock status of param_table. When table is locked, 
- *            functions which would otherwise change the value of 
+ * Purpose:   Set lock status of param_table. When table is locked,
+ *            functions which would otherwise change the value of
  *            parameters have no effect and produce an error message.
  * Arguments: P - pointer to param_table.
- *            locked - new status of lock. If locked==0, the status is 
+ *            locked - new status of lock. If locked==0, the status is
  *                     set to unlocked, otherwise it is set to locked.
  */
 
-void param_table_set_lock(param_table *P, 
+void param_table_set_lock(param_table *P,
                           char locked);
 
 
 /***********************************************************************
  * Function:  add_param
- * Purpose:   Add parameter to param_table. 
+ * Purpose:   Add parameter to param_table.
  * Arguments: P - pointer to param_table.
  *            name - name of parameter.
  *            type - type of parameter: "b" for boolean, "i" for int,
@@ -119,53 +119,53 @@ void param_table_set_lock(param_table *P,
  * Return:    Pointer to added parameter.
  */
 
-param *add_param(param_table *P, 
-                 const char *name, 
-                 const char *type, 
-                 char req, 
-                 double min, 
+param *add_param(param_table *P,
+                 const char *name,
+                 const char *type,
+                 char req,
+                 double min,
                  double max);
 
 
 /***********************************************************************
  * Function:  add_param_req
- * Purpose:   Add required parameter without constraints to param_table. 
+ * Purpose:   Add required parameter without constraints to param_table.
  * Arguments: P - pointer to param_table.
  *            name - name of parameter.
  *            type - type of parameter. See add_param.
  */
 
-param *add_param_req(param_table *P, 
-                     const char *name, 
+param *add_param_req(param_table *P,
+                     const char *name,
                      const char *type);
 
 
 /***********************************************************************
  * Function:  add_param_opt
- * Purpose:   Add optional parameter without constraints to param_table. 
+ * Purpose:   Add optional parameter without constraints to param_table.
  * Arguments: P - pointer to param_table.
  *            name - name of parameter.
  *            type - type of parameter. See add_param.
  */
 
-param *add_param_opt(param_table *P, 
-                     const char *name, 
+param *add_param_opt(param_table *P,
+                     const char *name,
                      const char *type);
 
 
 /***********************************************************************
  * Function:  add_param_def
- * Purpose:   Add parameter with default value without constraints to 
- *            param_table. 
+ * Purpose:   Add parameter with default value without constraints to
+ *            param_table.
  * Arguments: P - pointer to param_table.
  *            name - name of parameter.
  *            type - type of parameter. See add_param.
  *            value - string representation of default value.
  */
 
-param *add_param_def(param_table *P, 
-                     const char *name, 
-                     const char *type, 
+param *add_param_def(param_table *P,
+                     const char *name,
+                     const char *type,
                      const char *value);
 
 param *add_param_req_constr(param_table *P, const char *name, const char *type, double minval, double maxval);

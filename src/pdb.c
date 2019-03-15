@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -49,7 +49,7 @@ typedef struct {
 
 int add_atomic_pot(array *vol, double xc, double yc, double zc, int atomic_num, double temp_fact, double voxel_size, double num);
 
-int add_atomic_abs_pot(array *vol, double xc, double yc, double zc, int atomic_num, double temp_fact, 
+int add_atomic_abs_pot(array *vol, double xc, double yc, double zc, int atomic_num, double temp_fact,
 		       double voxel_size, double num, double acc_en);
 
 int add_gaussians(array *vol, double xc, double yc, double zc, double *a, double *b, int n, double voxel_size);
@@ -164,10 +164,10 @@ int get_pot_from_pdb(particle *p, electronbeam *ed){
 	    add_atomic_pot(&(p->pot_re), coord[0], coord[1], coord[2], 1, pdbrec.temp_fact, vox_sz_angst, nh*pdbrec.occ);
 	  }
 	  if(p->use_imag_pot){
-	    add_atomic_abs_pot(&(p->pot_im), coord[0], coord[1], coord[2], pdbrec.atomic_num, 
+	    add_atomic_abs_pot(&(p->pot_im), coord[0], coord[1], coord[2], pdbrec.atomic_num,
 			       pdbrec.temp_fact, vox_sz_angst, pdbrec.occ, acc_en);
 	    if(nh){
-	      add_atomic_abs_pot(&(p->pot_im), coord[0], coord[1], coord[2], 1, 
+	      add_atomic_abs_pot(&(p->pot_im), coord[0], coord[1], coord[2], 1,
 				 pdbrec.temp_fact, vox_sz_angst, nh*pdbrec.occ, acc_en);
 	    }
 	  }
@@ -192,7 +192,7 @@ int get_pot_from_pdb(particle *p, electronbeam *ed){
     }
   }
   write_log_comment("Size of particle map: %i x %i x %i\n", (int)nx, (int)ny, (int)nz);
-  write_log_comment("PDB coordinates of map center: (%f, %f, %f)\n", (float)(box[0] + 0.5*(nx-1)*vox_sz_angst), 
+  write_log_comment("PDB coordinates of map center: (%f, %f, %f)\n", (float)(box[0] + 0.5*(nx-1)*vox_sz_angst),
 		    (float)(box[2] + 0.5*(ny-1)*vox_sz_angst), (float)(box[4] + 0.5*(nz-1)*vox_sz_angst));
   write_log_comment("Number of atoms used to compute potential:\n");
   for(i = 1; i <= NUM_ELEM; i++){
@@ -228,7 +228,7 @@ int add_atomic_pot(array *vol, double xc, double yc, double zc, int atomic_num, 
 
 /****************************************************************************/
 
-int add_atomic_abs_pot(array *vol, double xc, double yc, double zc, int atomic_num, double temp_fact, 
+int add_atomic_abs_pot(array *vol, double xc, double yc, double zc, int atomic_num, double temp_fact,
 		       double voxel_size, double num, double acc_en){
   double wn = wave_number(acc_en);
   double b = 4*M_PI*M_PI/max_d(temp_fact + 20, 200*voxel_size*voxel_size);
@@ -281,8 +281,8 @@ int add_gaussians(array *vol, double xc, double yc, double zc, double *a, double
 
 /****************************************************************************/
 
-/* The following numerical values are from L.-M. Peng, G. Ren, S. L. Dudarev, 
- * M. J. Whelan, Robust Parameterization of Elastic and Absorptive Electron 
+/* The following numerical values are from L.-M. Peng, G. Ren, S. L. Dudarev,
+ * M. J. Whelan, Robust Parameterization of Elastic and Absorptive Electron
  * Atomic Scattering Factors, Acta Cryst. (1996). A52, 257-276, Table 1.
  */
 
@@ -532,7 +532,7 @@ int read_pdb_transf_file(array *a, particle *p){
     }
     else {
       free_matrix(&b);
-      WARNING("Error reading pdb transform file %s: %i columns found, should be 4 or 6.\n", 
+      WARNING("Error reading pdb transform file %s: %i columns found, should be 4 or 6.\n",
 	      get_param_string(p->param, PAR_PDB_TRANSF_FILE_IN), (int)b.n);
       return 1;
     }
@@ -562,7 +562,7 @@ void transf_coord(double coord[3], pdbrecord *p, array *transf, long k){
 
 /****************************************************************************/
 
-const static char element_symbols[NUM_ELEM][3] = 
+const static char element_symbols[NUM_ELEM][3] =
   {" H","HE","LI","BE"," B"," C"," N"," O"," F","NE",
    "NA","MG","AL","SI"," P"," S","CL","AR"," K","CA",
    "SC","TI"," V","CR","MN","FE","CO","NI","CU","ZN",

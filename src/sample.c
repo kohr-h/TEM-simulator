@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -243,9 +243,9 @@ int background_project(sample *sam, wavefunction *wf, matrix *pm, double pos[3])
 	    z4 = z2;
 	    path_support += sk2 * (zb - z2);
 	  }
-	  /* In some cases, for high tilt angles which should not occur in practice, 
-	   * the computation of path_ice is not correct. However, this is only for rays 
-	   * passing through the support which would not be used for reconstruction in 
+	  /* In some cases, for high tilt angles which should not occur in practice,
+	   * the computation of path_ice is not correct. However, this is only for rays
+	   * passing through the support which would not be used for reconstruction in
 	   * any case. */
 	  path_ice = sk2 * (z4 - z3);
 	}

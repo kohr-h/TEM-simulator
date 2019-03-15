@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -81,7 +81,7 @@ param_table *volume_param_table(const char *name){
   add_param_def(pt, PAR_MAP_FILE_FORMAT, "s," PAR_FILE_FORMAT__MRC "," PAR_FILE_FORMAT__MRC_INT "," PAR_FILE_FORMAT__RAW,
                 PAR_FILE_FORMAT__MRC);
   add_param_def(pt, PAR_MAP_AXIS_ORDER, "s,xyz,xzy,yxz,yzx,zxy,zyx", "xyz");
-  add_param_def(pt, PAR_MAP_FILE_BYTE_ORDER, "s," PAR_BYTE_ORDER__BE "," PAR_BYTE_ORDER__LE "," PAR_BYTE_ORDER__NATIVE, 
+  add_param_def(pt, PAR_MAP_FILE_BYTE_ORDER, "s," PAR_BYTE_ORDER__BE "," PAR_BYTE_ORDER__LE "," PAR_BYTE_ORDER__NATIVE,
                 PAR_BYTE_ORDER__NATIVE);
   add_param_req(pt, PAR_MAP_FILE_RE_OUT, "s");
   add_param_opt(pt, PAR_MAP_FILE_IM_OUT, "s");
@@ -194,7 +194,7 @@ int volume_write_map(volume *v, array *a, const char *fn){
   const char *format = get_param_string(v->param, PAR_MAP_FILE_FORMAT);
   rev = reverse_byte_order(get_param_string(v->param, PAR_MAP_FILE_BYTE_ORDER));
   if(0 == strcmp(format, PAR_FILE_FORMAT__RAW)){
-    ret = write_array_float4b(a, fn, no_header, map_axis_order, rev, voxel_size); 
+    ret = write_array_float4b(a, fn, no_header, map_axis_order, rev, voxel_size);
   }
   else if(0 == strcmp(format, PAR_FILE_FORMAT__MRC)){
     ret = write_array_float4b(a, fn, mrc_header, map_axis_order, rev, voxel_size);
@@ -365,7 +365,7 @@ int volume_add_particle(volume *v, particle *p, matrix *rm, double pos[3]){
 /****************************************************************************/
 
 int volume_add_background(volume *v, simulation *sim){
-  double a, b, c, r, r2, rad, sm, u, w, x, y, z, zb, voxel_size, offset[3], 
+  double a, b, c, r, r2, rad, sm, u, w, x, y, z, zb, voxel_size, offset[3],
     support_pot, support_abs = 0, ice_pot, ice_abs = 0, acc_en;
   long i, j, k;
   boolean use_imag_pot;
@@ -479,4 +479,3 @@ int volume_get_potential(volume *v, simulation *sim){
   if(volume_add_background(v, sim)) return 1;
   return 0;
 }
-

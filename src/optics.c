@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -34,7 +34,7 @@
 
 /****************************************************************************/
 
-param_table *optics_param_table(const char *name); 
+param_table *optics_param_table(const char *name);
 
 int optics_check_input(optics *o);
 
@@ -231,7 +231,7 @@ int optics_read_defocus_from_file(optics *o, long ntilts){
   }
   if(read_matrix_text(&(o->defocus), get_param_string(o->param, PAR_DEFOCUS_FILE_IN))) return 1;
   if(shrink_matrix(&(o->defocus), ntilts, 1)){
-    WARNING("Too few defocus data found in file %s to match ntilts = %i.\n", 
+    WARNING("Too few defocus data found in file %s to match ntilts = %i.\n",
 	    get_param_string(o->param, PAR_DEFOCUS_FILE_IN), (int)ntilts);
     return 1;
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -26,8 +26,8 @@
 /***********************************************************************
  * The vecf2d struct represents a vector valued (for example complex
  * valued) function of two variables. The function is represented by its
- * values on a lattice of points in the plane: If values is an k x m x n 
- * array, values(:,i,j) is the value of the function at the point 
+ * values on a lattice of points in the plane: If values is an k x m x n
+ * array, values(:,i,j) is the value of the function at the point
  * ((i-i0)*basis[0]+(j-j0)*basis[2]+offset[0], (i-i0)*basis[1]+(j-j0)*basis[3]+offset[1])
  * where i0 = 0.5*(m-1), j0 = 0.5*(n-1).
  ***********************************************************************/
@@ -41,26 +41,26 @@ typedef struct {
 
 /***********************************************************************
  * Function:  vecf2d_xyrange
- * Purpose:   Compute the range of x and y coordinates in which the 
+ * Purpose:   Compute the range of x and y coordinates in which the
  *            function is sampled.
  * Arguments: a - pointer to the vecf2d object.
  *            range - after return, contains {xmin, xmax, ymin, ymax}.
  */
 
-void vecf2d_xyrange(const vecf2d *a, 
+void vecf2d_xyrange(const vecf2d *a,
                     double range[4]);
 
 
 /***********************************************************************
  * Function:  vecf2d_add
- * Purpose:   Add the function a to b, using linear interpolation to 
+ * Purpose:   Add the function a to b, using linear interpolation to
  *            determine the values of a at the sampling points of b.
  *            a is treated as 0 outside the parallelogram where it is
  *            sampled.
  * Arguments: a, b - pointers to the vecf2d objects.
  */
 
-void vecf2d_add(const vecf2d *a, 
+void vecf2d_add(const vecf2d *a,
                 vecf2d *b);
 
 #endif

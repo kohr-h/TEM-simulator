@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -46,49 +46,49 @@ void delete_detector(detector *d);
 /***********************************************************************
  * Function:  detector_init
  * Purpose:   Do initializations necessary to make detector struct ready
- *            for use in computations once parameters have been from 
- *            input file. Calling detector_init on a detector object 
- *            which is already initialized has no effect. Once the 
- *            detector object has been initialized, input parameters can 
+ *            for use in computations once parameters have been from
+ *            input file. Calling detector_init on a detector object
+ *            which is already initialized has no effect. Once the
+ *            detector object has been initialized, input parameters can
  *            not be changed.
  * Arguments: d - Pointer to detector struct to be initialized.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
 
-int detector_init(detector *d, 
+int detector_init(detector *d,
                   simulation *sim);
 
 
 /***********************************************************************
  * Function:  detector_init_share
  * Purpose:   Do initializations necessary to make detector struct ready
- *            for use in computations once parameters have been from 
- *            input file. Calling detector_init on a detector object 
- *            which is already initialized has no effect. Once the 
- *            detector object has been initialized, input parameters can 
+ *            for use in computations once parameters have been from
+ *            input file. Calling detector_init on a detector object
+ *            which is already initialized has no effect. Once the
+ *            detector object has been initialized, input parameters can
  *            not be changed.
  * Arguments: d - Pointer to detector struct to be initialized.
  *            count, count_ft - Pointers to arrays, which the detector
  *            arrays will share memory with. Can be null pointers, in
  *            which case the memory will not be shared.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
 
-int detector_init_share(detector *d, 
-                        simulation *sim, 
-                        array *count, 
+int detector_init_share(detector *d,
+                        simulation *sim,
+                        array *count,
                         array *count_ft);
 
 
 /***********************************************************************
  * Function:  detector_init_all
- * Purpose:   Initialize all uninitialized detectors in simulation, so 
+ * Purpose:   Initialize all uninitialized detectors in simulation, so
  *            that they share the same memory.
- * Arguments: sim - Pointer to simulation object. 
+ * Arguments: sim - Pointer to simulation object.
  * Return:    0 on success, nonzero on failure.
  */
 
@@ -97,10 +97,10 @@ int detector_init_all(simulation *sim);
 
 /***********************************************************************
  * Function:  detector_reset
- * Purpose:   Reset detector object to the uninitialized state and 
+ * Purpose:   Reset detector object to the uninitialized state and
  *            release memory allocated by detector_init. Has no effect
  *            if detector object is already in the uninitialized state.
- *            After detector_reset has been called, detector_init can 
+ *            After detector_reset has been called, detector_init can
  *            be used to initialize detector object again, possibly with
  *            different input parameters.
  * Arguments: d - Pointer to detector struct to be reset.
@@ -120,7 +120,7 @@ int detector_write_log(detector *d);
 
 /***********************************************************************
  * Function:  detector_write_image
- * Purpose:   Add an output image to the image file and update file 
+ * Purpose:   Add an output image to the image file and update file
  *            header if necessary.
  * Arguments: d - Pointer to detector struct, assumed to be initialized.
  * Return:    0 on success, nonzero on failure.
@@ -131,7 +131,7 @@ int detector_write_image(detector *d);
 
 /***********************************************************************
  * Function:  detector_apply_quantization
- * Purpose:   Apply quantization noise to the detector image being 
+ * Purpose:   Apply quantization noise to the detector image being
  *            processed.
  * Arguments: d - Pointer to detector struct, assumed to be initialized.
  * Return:    0 on success, nonzero on failure.
@@ -156,14 +156,14 @@ int detector_apply_mtf(detector *d);
  * Purpose:   Get electron wave intensity in the detector plane from
  *            wave function object.
  * Arguments: d - Pointer to detector struct, assumed to be initialized.
- *            wf - Pointer to wave function object, assumed to be 
+ *            wf - Pointer to wave function object, assumed to be
  *                 initialized.
  *            tilt - number of image in tilt series.
  * Return:    0 on success, nonzero on failure.
  */
 
-int detector_get_intensity(detector *d, 
-                           wavefunction *wf, 
+int detector_get_intensity(detector *d,
+                           wavefunction *wf,
                            long tilt);
 
 

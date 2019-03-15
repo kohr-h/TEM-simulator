@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -171,7 +171,7 @@ int set_this_param(param *p, const char *value){
   switch(p->type){
   case 'c':
     if(p->addr == NULL) p->addr = malloc(sizeof(char));
-    *(char*)p->addr = value[0]; 
+    *(char*)p->addr = value[0];
     break;
   case 'i':
     if(p->addr == NULL) p->addr = malloc(sizeof(int));
@@ -711,7 +711,7 @@ int check_param(param *p, const char *ptclass, const char *ptname){
     check_bounds = 0;
   }
   if(check_bounds && ((val < p->minval) || (val > p->maxval))){
-    WARNING("Parameter %s in %s %s has illegal value %f. Value must be in the interval [%f,%f].\n", 
+    WARNING("Parameter %s in %s %s has illegal value %f. Value must be in the interval [%f,%f].\n",
 	    p->name, ptclass, ptname, (float)val, (float)p->minval, (float)p->maxval);
     ret = 1;
   }
@@ -724,7 +724,7 @@ int check_param(param *p, const char *ptclass, const char *ptname){
     }
     free(allowed);
     if(NULL == substr){
-      WARNING("Parameter %s in %s %s has illegal value %s. Permissible values are %s.\n", 
+      WARNING("Parameter %s in %s %s has illegal value %s. Permissible values are %s.\n",
               p->name, ptclass, ptname, (char*)p->addr, p->allowed+1);
       ret = 1;
     }

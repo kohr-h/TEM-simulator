@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -49,13 +49,13 @@ void delete_volume(volume *v);
 /***********************************************************************
  * Function:  volume_init
  * Purpose:   Do initializations necessary to make volume struct ready
- *            for use in computations once parameters have been from 
- *            input file. Calling volume_init on a volume object 
- *            which is already initialized has no effect. Once the 
- *            volume object has been initialized, input parameters can 
+ *            for use in computations once parameters have been from
+ *            input file. Calling volume_init on a volume object
+ *            which is already initialized has no effect. Once the
+ *            volume object has been initialized, input parameters can
  *            not be changed.
  * Arguments: v - Pointer to volume struct to be initialized.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
@@ -65,10 +65,10 @@ int volume_init(volume *v, simulation *sim);
 
 /***********************************************************************
  * Function:  volume_reset
- * Purpose:   Reset volume object to the uninitialized state and 
+ * Purpose:   Reset volume object to the uninitialized state and
  *            release memory allocated by volume_init. Has no effect
  *            if volume object is already in the uninitialized state.
- *            After volume_reset has been called, volume_init can 
+ *            After volume_reset has been called, volume_init can
  *            be used to initialize volume object again, possibly with
  *            different input parameters.
  * Arguments: v - Pointer to volume struct to be reset.

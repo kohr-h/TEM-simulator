@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -117,16 +117,16 @@ int wavefunction_init(wavefunction *wf, double det_pixel_size, double det_range[
   init_array_shared(&(wf->inel), 1, pixels_x, pixels_y, &(wf->phase.values));
   init_array_prealloc(&(wf->inel_ft), 2, 1+pixels_x/2, pixels_y, wf->phase.values.data + pixels_x*pixels_y);
   init_array(&(wf->intens.values), 1, pixels_x, pixels_y);
-  wf->fftplan_wf_f = fftw_plan_dft_2d(wf->wf.size[2], wf->wf.size[1], 
+  wf->fftplan_wf_f = fftw_plan_dft_2d(wf->wf.size[2], wf->wf.size[1],
                                       (fftw_complex*)wf->wf.data, (fftw_complex*)wf->wf_ft.data,
                                       FFTW_FORWARD, FFTW_ESTIMATE);
-  wf->fftplan_wf_b = fftw_plan_dft_2d(wf->wf.size[2], wf->wf.size[1], 
+  wf->fftplan_wf_b = fftw_plan_dft_2d(wf->wf.size[2], wf->wf.size[1],
                                       (fftw_complex*)wf->wf_ft.data, (fftw_complex*)wf->wf.data,
                                       FFTW_BACKWARD, FFTW_ESTIMATE);
-  wf->fftplan_inel_f = fftw_plan_dft_r2c_2d(wf->inel.size[2], wf->inel.size[1], 
+  wf->fftplan_inel_f = fftw_plan_dft_r2c_2d(wf->inel.size[2], wf->inel.size[1],
                                             wf->inel.data, (fftw_complex*)wf->inel_ft.data,
                                             FFTW_ESTIMATE);
-  wf->fftplan_inel_b = fftw_plan_dft_c2r_2d(wf->inel.size[2], wf->inel.size[1], 
+  wf->fftplan_inel_b = fftw_plan_dft_c2r_2d(wf->inel.size[2], wf->inel.size[1],
                                             (fftw_complex*)wf->inel_ft.data, wf->inel.data,
                                             FFTW_ESTIMATE);
   wavefunction_set_inel_ctf(wf);
@@ -156,7 +156,7 @@ void wavefunction_reset(wavefunction *wf){
 /****************************************************************************/
 
 int wavefunction_prop_el_opt(wavefunction *wf, long tilt, double z){
-  double a, b, c, d, e, dxi, dxj, xi, xj, x, x2, x4, x6, env, chi, acc_en, acc_en_spr, df, 
+  double a, b, c, d, e, dxi, dxj, xi, xj, x, x2, x4, x6, env, chi, acc_en, acc_en_spr, df,
     ccp, ap_ang, cs, k, B, ctfr, ctfi, re;
   const double epsilon = 0.5/ELEC_REST_ENERGY;
   long n, m, i, j;
@@ -176,7 +176,7 @@ int wavefunction_prop_el_opt(wavefunction *wf, long tilt, double z){
   acc_en = electronbeam_get_acc_energy(wf->ed);
   k = wave_number(acc_en);
   acc_en_spr = electronbeam_get_energy_spread(wf->ed);
-  df = z + optics_get_defocus(wf->opt, tilt); 
+  df = z + optics_get_defocus(wf->opt, tilt);
   cs = optics_get_cs(wf->opt);
   ccp = (1 + 2*epsilon*acc_en)/(acc_en*(1 + epsilon*acc_en)) * optics_get_cc(wf->opt);
   ap_ang = optics_get_cond_ap_angle(wf->opt);

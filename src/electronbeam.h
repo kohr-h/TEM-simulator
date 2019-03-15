@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -45,28 +45,28 @@ void delete_electronbeam(electronbeam *ed);
 
 /***********************************************************************
  * Function:  electronbeam_init
- * Purpose:   Do initializations necessary to make electronbeam struct 
+ * Purpose:   Do initializations necessary to make electronbeam struct
  *            ready for use in computations once parameters have been
- *            read from input file. Calling electronbeam_init on an 
- *            electronbeam object which is already initialized has no 
- *            effect. Once the electronbeam object has been initialized, 
+ *            read from input file. Calling electronbeam_init on an
+ *            electronbeam object which is already initialized has no
+ *            effect. Once the electronbeam object has been initialized,
  *            input parameters can not be changed.
  * Arguments: ed - Pointer to electronbeam struct to be initialized.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
 
-int electronbeam_init(electronbeam *ed, 
+int electronbeam_init(electronbeam *ed,
                       simulation *sim);
 
 
 /***********************************************************************
  * Function:  electronbeam_reset
- * Purpose:   Reset electronbeam object to the uninitialized state and 
+ * Purpose:   Reset electronbeam object to the uninitialized state and
  *            release memory allocated by electronbeam_init. Has no effect
  *            if electronbeam object is already in the uninitialized state.
- *            After electronbeam_reset has been called, detector_init can 
+ *            After electronbeam_reset has been called, detector_init can
  *            be used to initialize electronbeam object again, possibly with
  *            different input parameters.
  * Arguments: ed - Pointer to electronbeam struct to be reset.
@@ -97,7 +97,7 @@ double wave_number(double acc_en);
 
 /***********************************************************************
  * Function:  potential_conv_factor
- * Purpose:   Compute factor by which projected potential should be 
+ * Purpose:   Compute factor by which projected potential should be
  *            multiplied to obtain phase shift of electron wave.
  * Arguments: acc_en - Acceleration energy of electrons.
  * Return:    Multiplicative factor.
@@ -109,8 +109,8 @@ double potential_conv_factor(double acc_en);
 /***********************************************************************
  * Function:  diff_cross_sec
  * Purpose:   Compute differential cross section for elastic and inelastic
- *            scattering of electrons from a single neutral atom according 
- *            to model in Ludwig Reimer, Transmission electron microscopy: 
+ *            scattering of electrons from a single neutral atom according
+ *            to model in Ludwig Reimer, Transmission electron microscopy:
  *            physics of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
@@ -118,32 +118,32 @@ double potential_conv_factor(double acc_en);
  * Return:    Differential cross section.
  */
 
-double diff_cross_sec(double acc_en, 
-                      double Z, 
+double diff_cross_sec(double acc_en,
+                      double Z,
                       double theta);
 
 
 /***********************************************************************
  * Function:  cross_sec
  * Purpose:   Compute total cross section for elastic and inelastic
- *            scattering of electrons from a single neutral atom according 
- *            to model in Ludwig Reimer, Transmission electron microscopy: 
+ *            scattering of electrons from a single neutral atom according
+ *            to model in Ludwig Reimer, Transmission electron microscopy:
  *            physics of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
  * Return:    Cross section.
  */
 
-double cross_sec(double acc_en, 
+double cross_sec(double acc_en,
                  double Z);
 
 
 /***********************************************************************
  * Function:  cross_sec_thr
- * Purpose:   Compute cross section for elastic and inelastic scattering 
- *            to angles greater than theta of electrons from a single 
- *            neutral atom according to model in Ludwig Reimer, 
- *            Transmission electron microscopy: physics of image formation 
+ * Purpose:   Compute cross section for elastic and inelastic scattering
+ *            to angles greater than theta of electrons from a single
+ *            neutral atom according to model in Ludwig Reimer,
+ *            Transmission electron microscopy: physics of image formation
  *            and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
@@ -151,16 +151,16 @@ double cross_sec(double acc_en,
  * Return:    Cross section
  */
 
-double cross_sec_thr(double acc_en, 
-                     double Z, 
+double cross_sec_thr(double acc_en,
+                     double Z,
                      double theta);
 
 
 /***********************************************************************
  * Function:  diff_el_cross_sec
- * Purpose:   Compute differential cross section for elastic scattering 
- *            of electrons from a single neutral atom according to model 
- *            in Ludwig Reimer, Transmission electron microscopy: physics 
+ * Purpose:   Compute differential cross section for elastic scattering
+ *            of electrons from a single neutral atom according to model
+ *            in Ludwig Reimer, Transmission electron microscopy: physics
  *            of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
@@ -168,31 +168,31 @@ double cross_sec_thr(double acc_en,
  * Return:    Differential cross section.
  */
 
-double diff_el_cross_sec(double acc_en, 
-                         double Z, 
+double diff_el_cross_sec(double acc_en,
+                         double Z,
                          double theta);
 
 
 /***********************************************************************
  * Function:  el_cross_sec
- * Purpose:   Compute total cross section for elastic scattering of 
- *            electrons from a single neutral atom according to model in 
- *            Ludwig Reimer, Transmission electron microscopy: physics 
+ * Purpose:   Compute total cross section for elastic scattering of
+ *            electrons from a single neutral atom according to model in
+ *            Ludwig Reimer, Transmission electron microscopy: physics
  *            of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
  * Return:    Cross section.
  */
 
-double el_cross_sec(double acc_en, 
+double el_cross_sec(double acc_en,
                     double Z);
 
 
 /***********************************************************************
  * Function:  el_cross_sec_thr
- * Purpose:   Compute cross section for elastic scattering to angles 
- *            greater than theta of electrons from a single neutral atom 
- *            according to model in Ludwig Reimer, Transmission electron 
+ * Purpose:   Compute cross section for elastic scattering to angles
+ *            greater than theta of electrons from a single neutral atom
+ *            according to model in Ludwig Reimer, Transmission electron
  *            microscopy: physics of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
@@ -200,16 +200,16 @@ double el_cross_sec(double acc_en,
  * Return:    Cross section
  */
 
-double el_cross_sec_thr(double acc_en, 
-                        double Z, 
+double el_cross_sec_thr(double acc_en,
+                        double Z,
                         double theta);
 
 
 /***********************************************************************
  * Function:  diff_inel_cross_sec
- * Purpose:   Compute differential cross section for inelastic scattering 
- *            of electrons from a single neutral atom according to model 
- *            in Ludwig Reimer, Transmission electron microscopy: physics 
+ * Purpose:   Compute differential cross section for inelastic scattering
+ *            of electrons from a single neutral atom according to model
+ *            in Ludwig Reimer, Transmission electron microscopy: physics
  *            of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
@@ -217,31 +217,31 @@ double el_cross_sec_thr(double acc_en,
  * Return:    Differential cross section.
  */
 
-double diff_inel_cross_sec(double acc_en, 
-                           double Z, 
+double diff_inel_cross_sec(double acc_en,
+                           double Z,
                            double theta);
 
 
 /***********************************************************************
  * Function:  inel_cross_sec
- * Purpose:   Compute total cross section for inelastic scattering of 
- *            electrons from a single neutral atom according to model in 
- *            Ludwig Reimer, Transmission electron microscopy: physics 
+ * Purpose:   Compute total cross section for inelastic scattering of
+ *            electrons from a single neutral atom according to model in
+ *            Ludwig Reimer, Transmission electron microscopy: physics
  *            of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
  * Return:    Cross section.
  */
 
-double inel_cross_sec(double acc_en, 
+double inel_cross_sec(double acc_en,
                       double Z);
 
 
 /***********************************************************************
  * Function:  inel_cross_sec_thr
- * Purpose:   Compute cross section for inelastic scattering to angles 
- *            greater than theta of electrons from a single neutral atom 
- *            according to model in Ludwig Reimer, Transmission electron 
+ * Purpose:   Compute cross section for inelastic scattering to angles
+ *            greater than theta of electrons from a single neutral atom
+ *            according to model in Ludwig Reimer, Transmission electron
  *            microscopy: physics of image formation and microanalysis.
  * Arguments: acc_en - Acceleration energy of electrons.
  *            Z - Atomic number.
@@ -249,14 +249,14 @@ double inel_cross_sec(double acc_en,
  * Return:    Cross section
  */
 
-double inel_cross_sec_thr(double acc_en, 
-                          double Z, 
+double inel_cross_sec_thr(double acc_en,
+                          double Z,
                           double alpha);
 
 
 /***********************************************************************
  * Function:  electronbeam_get_acc_energy
- * Purpose:   Get acceleration energy of electrons as determined by 
+ * Purpose:   Get acceleration energy of electrons as determined by
  *            acceleration voltage read from input.
  * Arguments: ed - Pointer to electronbeam struct.
  * Return:    Acceleration energy of electrons.
@@ -267,7 +267,7 @@ double electronbeam_get_acc_energy(electronbeam *ed);
 
 /***********************************************************************
  * Function:  electronbeam_get_energy_spread
- * Purpose:   Get energy spread of electorns as determined by input 
+ * Purpose:   Get energy spread of electorns as determined by input
  *            parameters.
  * Arguments: ed - Pointer to electronbeam struct.
  * Return:    Energy spread of electrons.

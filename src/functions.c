@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -71,7 +71,7 @@ void vecf2d_add(const vecf2d *a, vecf2d *b){
 			      - fabs(coeff[1][1]) * 0.5*(b->values.size[1+dimsb[0]] - 1)
 			      - fabs(coeff[1][0]) * 0.5*(b->values.size[1+dimsb[1]] - 1)
 			      + coeff[1][2]));
-  imax = min_l(a->values.size[1+dimsa[1]], 
+  imax = min_l(a->values.size[1+dimsa[1]],
 	       1 + (long)ceil(0.5*(a->values.size[1+dimsa[1]] - 1)
 			      + fabs(coeff[1][1]) * 0.5*(b->values.size[1+dimsb[0]] - 1)
 			      + fabs(coeff[1][0]) * 0.5*(b->values.size[1+dimsb[1]] - 1)
@@ -80,7 +80,7 @@ void vecf2d_add(const vecf2d *a, vecf2d *b){
 			      - fabs(1/coeff[0][0]) * 0.5*(a->values.size[1+dimsa[0]] - 1)
 			      - fabs(coeff[0][1]/coeff[0][0]) * 0.5*(a->values.size[1+dimsa[1]] - 1)
 			      - coeff[0][2]/coeff[0][0]));
-  jmax = min_l(b->values.size[1+dimsb[0]], 
+  jmax = min_l(b->values.size[1+dimsb[0]],
 	       1 + (long)ceil(0.5*(b->values.size[1+dimsb[0]] - 1)
 			      + fabs(1/coeff[0][0]) * 0.5*(a->values.size[1+dimsa[0]] - 1)
 			      + fabs(coeff[0][1]/coeff[0][0]) * 0.5*(a->values.size[1+dimsa[1]] - 1)
@@ -191,5 +191,3 @@ void double_shear_coeff(const vecf2d *a, const vecf2d *b, const int dimsa[2], co
   free_matrix(&v);
   free_matrix(&w);
 }
-
-

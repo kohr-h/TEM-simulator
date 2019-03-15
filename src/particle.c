@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -92,10 +92,10 @@ param_table *particle_param_table(const char *name){
   add_param_opt(pt, PAR_PDB_FILE_IN, "s");
   add_param_opt(pt, PAR_PDB_TRANSF_FILE_IN, "s");
   add_param_def(pt, PAR_ADD_HYDROGEN, "b", YES_STRING);
-  add_param_def(pt, PAR_MAP_FILE_FORMAT, "s," PAR_FILE_FORMAT__MRC "," PAR_FILE_FORMAT__MRC_INT "," PAR_FILE_FORMAT__RAW, 
+  add_param_def(pt, PAR_MAP_FILE_FORMAT, "s," PAR_FILE_FORMAT__MRC "," PAR_FILE_FORMAT__MRC_INT "," PAR_FILE_FORMAT__RAW,
                 PAR_FILE_FORMAT__MRC);
   add_param_def(pt, PAR_MAP_AXIS_ORDER, "s,xyz,xzy,yxz,yzx,zxy,zyx", "xyz");
-  add_param_def(pt, PAR_MAP_FILE_BYTE_ORDER, "s," PAR_BYTE_ORDER__BE "," PAR_BYTE_ORDER__LE "," PAR_BYTE_ORDER__NATIVE, 
+  add_param_def(pt, PAR_MAP_FILE_BYTE_ORDER, "s," PAR_BYTE_ORDER__BE "," PAR_BYTE_ORDER__LE "," PAR_BYTE_ORDER__NATIVE,
                 PAR_BYTE_ORDER__NATIVE);
   add_param_opt(pt, PAR_MAP_FILE_RE_IN, "s");
   add_param_opt(pt, PAR_MAP_FILE_IM_IN, "s");
@@ -229,11 +229,11 @@ int particle_init(particle *p, simulation *sim){
     ny =  get_param_long(p->param, PAR_NY);
     nz =  get_param_long(p->param, PAR_NZ);
     init_array(&(p->pot_re), nx, ny, nz);
-    generate_random_particle(&(p->pot_re), get_param_double(p->param, PAR_CONTRAST_RE), 
+    generate_random_particle(&(p->pot_re), get_param_double(p->param, PAR_CONTRAST_RE),
 			     get_param_double(p->param, PAR_SMOOTHNESS), get_param_boolean(p->param, PAR_MAKE_POSITIVE));
     if(p->use_imag_pot){
       init_array(&(p->pot_im), nx, ny, nz);
-      generate_random_particle(&(p->pot_im), get_param_double(p->param, PAR_CONTRAST_IM), 
+      generate_random_particle(&(p->pot_im), get_param_double(p->param, PAR_CONTRAST_IM),
 			       get_param_double(p->param, PAR_SMOOTHNESS), get_param_boolean(p->param, PAR_MAKE_POSITIVE));
     }
     particle_write_maps(p);
@@ -306,7 +306,7 @@ int particle_check_input(particle *p){
   }
   else if(0 == strcmp(source, PAR_SOURCE__RANDOM)){
     if(require_param(p->param, PAR_NX) || require_param(p->param, PAR_NY) || require_param(p->param, PAR_NZ)
-       || require_param(p->param, PAR_VOXEL_SIZE) || require_param(p->param, PAR_CONTRAST_RE) 
+       || require_param(p->param, PAR_VOXEL_SIZE) || require_param(p->param, PAR_CONTRAST_RE)
        || require_param(p->param, PAR_SMOOTHNESS) || require_param(p->param, PAR_MAKE_POSITIVE))
       return 1;
     if(use_imag_pot){
@@ -439,7 +439,7 @@ int particle_write_map(particle *p, array *a, const char *fn){
   const char *map_axis_order = get_param_string(p->param, PAR_MAP_AXIS_ORDER);
   const char *format = get_param_string(p->param, PAR_MAP_FILE_FORMAT);
   if(0 == strcmp(format, PAR_FILE_FORMAT__RAW)){
-    ret = write_array_float4b(a, fn, no_header, map_axis_order, p->rev_byte_order, voxel_size); 
+    ret = write_array_float4b(a, fn, no_header, map_axis_order, p->rev_byte_order, voxel_size);
   }
   else if(0 == strcmp(format, PAR_FILE_FORMAT__MRC)){
     ret = write_array_float4b(a, fn, mrc_header, map_axis_order, p->rev_byte_order, voxel_size);
@@ -691,7 +691,7 @@ int particle_hits_wavefunction(particle *p, wavefunction *wf, matrix *pm, double
   for(j = 0; j < 2; j++){
     a = 0;
     for(i = 0; i < 3; i++){
-      a += 0.5 * p->pot_re.size[i] * voxel_size 
+      a += 0.5 * p->pot_re.size[i] * voxel_size
 	* fabs(wf->phase.basis[1+2*j]*get_matrix_entry(pm, 0, i) - wf->phase.basis[2*j]*get_matrix_entry(pm, 1, i));
     }
     b = fabs(wf->phase.basis[1+2*j]*(pos[0] - wf->phase.offset[0]) - wf->phase.basis[2*j]*(pos[1] - wf->phase.offset[1]));

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -59,9 +59,9 @@ int detector_check_input(detector *d);
 
 /***********************************************************************
  * Function:  detector_create_image_file
- * Purpose:   Write header part of image output file. Called during 
- *            initialization. Images are added to the file (and the 
- *            header is updated if necessary) by subsequent calls to 
+ * Purpose:   Write header part of image output file. Called during
+ *            initialization. Images are added to the file (and the
+ *            header is updated if necessary) by subsequent calls to
  *            detector_write_image.
  * Arguments: d - Pointer to detector struct.
  *            sim - Pointer to simulation struct.
@@ -110,10 +110,10 @@ param_table *detector_param_table(const char *name){
   add_param_def_constr(pt, PAR_MTF_P, "d", "1", 0, 10);
   add_param_def_constr(pt, PAR_MTF_Q, "d", "1", 0, 10);
   add_param_req(pt, PAR_IMAGE_FILE_OUT, "s");
-  add_param_def(pt, PAR_IMAGE_FILE_FORMAT, "s," PAR_FILE_FORMAT__MRC "," PAR_FILE_FORMAT__MRC_INT "," PAR_FILE_FORMAT__RAW, 
+  add_param_def(pt, PAR_IMAGE_FILE_FORMAT, "s," PAR_FILE_FORMAT__MRC "," PAR_FILE_FORMAT__MRC_INT "," PAR_FILE_FORMAT__RAW,
                 PAR_FILE_FORMAT__MRC);
   add_param_def(pt, PAR_IMAGE_AXIS_ORDER, "s,xy,yx", "xy");
-  add_param_def(pt, PAR_IMAGE_FILE_BYTE_ORDER, "s," PAR_BYTE_ORDER__BE "," PAR_BYTE_ORDER__LE "," PAR_BYTE_ORDER__NATIVE, 
+  add_param_def(pt, PAR_IMAGE_FILE_BYTE_ORDER, "s," PAR_BYTE_ORDER__BE "," PAR_BYTE_ORDER__LE "," PAR_BYTE_ORDER__NATIVE,
                 PAR_BYTE_ORDER__NATIVE);
   set_comp_descr(pt, "The detector component simulates the formation of \
 an image once the electron wave reaches the scintillator and writes the \
@@ -126,7 +126,7 @@ the y direction.");
   set_param_descr(pt, PAR_PADDING, "Number of pixels of padding added \
 on each side of the detector in the internal computations.");
   set_param_descr(pt, PAR_PIXEL_SIZE, "Physical size of the detector \
-pixels in micrometer."); 
+pixels in micrometer.");
   set_param_descr(pt, PAR_GAIN, "The average number of counts produced \
 by each electron striking the detector.");
   set_param_descr(pt, PAR_DQE, "Detector quantum efficiency");
@@ -186,10 +186,10 @@ int detector_init_share(detector *d, simulation *sim, array *count, array *count
   if(count_ft == NULL || init_array_shared(&(d->count_ft), 2, 1 + nx/2, ny, count_ft)){
     init_array(&(d->count_ft), 2, 1 + nx/2, ny);
   }
-  d->fftplan_f = fftw_plan_dft_r2c_2d(d->count.values.size[2], d->count.values.size[1], 
+  d->fftplan_f = fftw_plan_dft_r2c_2d(d->count.values.size[2], d->count.values.size[1],
 				      d->count.values.data, (fftw_complex*)d->count_ft.data,
 				      FFTW_ESTIMATE);
-  d->fftplan_b = fftw_plan_dft_c2r_2d(d->count.values.size[2], d->count.values.size[1], 
+  d->fftplan_b = fftw_plan_dft_c2r_2d(d->count.values.size[2], d->count.values.size[1],
 				      (fftw_complex*)d->count_ft.data, d->count.values.data,
 				      FFTW_ESTIMATE);
   d->init = 1;
@@ -230,7 +230,7 @@ int detector_init_all(simulation *sim){
       free_array(&count);
       free_array(&count_ft);
       return 1;
-    }		   
+    }
   }
   free_array(&count);
   free_array(&count_ft);
@@ -379,11 +379,11 @@ int detector_write_image(detector *d){
     return 1;
   }
   if(0 == strcmp(format, PAR_FILE_FORMAT__MRC_INT)){
-    ret = write_int2b_data(d->count.values.data + padding*(1 + d->count.values.size[1]), fp, size, steps, 
+    ret = write_int2b_data(d->count.values.data + padding*(1 + d->count.values.size[1]), fp, size, steps,
 			   d->file_header.rev, factor, min_max_mean);
   }
   else {
-    ret = write_float4b_data(d->count.values.data + padding*(1 + d->count.values.size[1]), fp, size, steps, 
+    ret = write_float4b_data(d->count.values.data + padding*(1 + d->count.values.size[1]), fp, size, steps,
 			     d->file_header.rev, min_max_mean);
   }
   fclose(fp);

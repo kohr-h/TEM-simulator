@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -60,7 +60,7 @@ long nele_matrix(const matrix *a){
 
 void set_matrix_entry(matrix *a, long i, long j, double x){
   double *d;
-  if((i < a->m)&&(j < a->n)&&(i >= 0)&&(j >= 0)){  
+  if((i < a->m)&&(j < a->n)&&(i >= 0)&&(j >= 0)){
     d = a->data;
     d += i + j*a->m;
     *d = x;
@@ -71,7 +71,7 @@ void set_matrix_entry(matrix *a, long i, long j, double x){
 
 void add_to_matrix_entry(matrix *a, long i, long j, double x){
   double *d;
-  if((i < a->m)&&(j < a->n)&&(i >= 0)&&(j >= 0)){  
+  if((i < a->m)&&(j < a->n)&&(i >= 0)&&(j >= 0)){
     d = a->data;
     d += i + j*a->m;
     *d += x;
@@ -378,7 +378,7 @@ int read_matrix_text(matrix *a, const char *fn){
 	set_matrix_entry(a, i, k, x);
       }
       i++;
-    }  
+    }
   }
   fclose(fp);
   return 0;

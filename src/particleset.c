@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -44,7 +44,7 @@ int particleset_read_coord(particleset *ps);
 
 int particleset_write_coord(particleset *ps);
 
-int generate_random_coordinates(particleset *ps, 
+int generate_random_coordinates(particleset *ps,
                                 simulation *sim);
 
 /****************************************************************************/
@@ -446,4 +446,3 @@ PAR_PARTICLE_CONC ", or " PAR_OCCUPANCY " must be defined.\n");
   write_log_comment("Generated %i particle coordinates.\n", (int)ps->coordinates.m);
   return 0;
 }
-

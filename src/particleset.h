@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -46,27 +46,27 @@ void delete_particleset(particleset *ps);
 /***********************************************************************
  * Function:  particleset_init
  * Purpose:   Do initializations necessary to make particleset struct ready
- *            for use in computations once parameters have been from 
- *            input file. Calling particleset_init on a particleset object 
- *            which is already initialized has no effect. Once the 
- *            particleset object has been initialized, input parameters can 
+ *            for use in computations once parameters have been from
+ *            input file. Calling particleset_init on a particleset object
+ *            which is already initialized has no effect. Once the
+ *            particleset object has been initialized, input parameters can
  *            not be changed.
  * Arguments: ps - Pointer to particleset struct to be initialized.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
 
-int particleset_init(particleset *ps, 
+int particleset_init(particleset *ps,
                      simulation *sim);
 
 
 /***********************************************************************
  * Function:  particleset_reset
- * Purpose:   Reset particleset object to the uninitialized state and 
+ * Purpose:   Reset particleset object to the uninitialized state and
  *            release memory allocated by particleset_init. Has no effect
  *            if particleset object is already in the uninitialized state.
- *            After particleset_reset has been called, particleset_init can 
+ *            After particleset_reset has been called, particleset_init can
  *            be used to initialize particleset object again, possibly with
  *            different input parameters.
  * Arguments: ps - Pointer to particleset struct to be reset.
@@ -83,17 +83,17 @@ void particleset_reset(particleset *ps);
 
 int particleset_write_log(particleset *ps);
 
-int rotate_particle(matrix *pm, 
-                    particleset *ps, 
+int rotate_particle(matrix *pm,
+                    particleset *ps,
                     long i);
 
-int get_particle_pos(double pos[3], 
-                     particleset *ps, 
+int get_particle_pos(double pos[3],
+                     particleset *ps,
                      long i);
 
-int get_particle_coord(matrix *pm, 
-                       double pos[3], 
-                       particleset *ps, 
+int get_particle_coord(matrix *pm,
+                       double pos[3],
+                       particleset *ps,
                        long i);
 
 #endif

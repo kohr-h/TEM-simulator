@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -38,7 +38,7 @@
 #define YES_STRING "yes"
 #define NO_STRING "no"
 
-/* Function used to report warnings. This should be a printf-like function, taking a 
+/* Function used to report warnings. This should be a printf-like function, taking a
  * format string as first argument, followed by a variable number of arguments determined
  * by the format string. Defined as a macro so it is easy to include information about file
  * and line number in the warning by changing the definition. */
@@ -56,7 +56,7 @@
  * work in Windows, the Windows version just makes an estimate which should be sufficient most of the
  * time. If the estimate would be to small, a subsequent call to VSNPRINTF will result in a truncated
  * string, not a buffer overflow.
- * STRTOK is a macro for strtok or strtok_win. strtok_win is a function which does the same thing as 
+ * STRTOK is a macro for strtok or strtok_win. strtok_win is a function which does the same thing as
  * strtok, but without giving rise to compiler warnings in Windows.
  * STRTOK_R is a macro for strtok_r or strtok_s
  * BESSEL0 is the zero order bessel function.
@@ -107,7 +107,7 @@
 
 /* The macro M_PI from math.h is needed below. The include must be after
  * _USE_MATH_DEFINES is defined if this should work in Windows. */
-#include <math.h> 
+#include <math.h>
 
 
 /* Units used for certain input and output */

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -47,13 +47,13 @@ void delete_sample(sample *s);
 /***********************************************************************
  * Function:  sample_init
  * Purpose:   Do initializations necessary to make sample struct ready
- *            for use in computations once parameters have been from 
- *            input file. Calling sample_init on a sample object 
- *            which is already initialized has no effect. Once the 
- *            sample object has been initialized, input parameters can 
+ *            for use in computations once parameters have been from
+ *            input file. Calling sample_init on a sample object
+ *            which is already initialized has no effect. Once the
+ *            sample object has been initialized, input parameters can
  *            not be changed.
  * Arguments: s - Pointer to sample struct to be initialized.
- *            sim - Pointer to simulation object. Used to access input 
+ *            sim - Pointer to simulation object. Used to access input
  *                  of other objects if necessary.
  * Return:    0 on success, nonzero on failure.
  */
@@ -63,10 +63,10 @@ int sample_init(sample *s, simulation *sim);
 
 /***********************************************************************
  * Function:  sample_reset
- * Purpose:   Reset sample object to the uninitialized state and 
+ * Purpose:   Reset sample object to the uninitialized state and
  *            release memory allocated by sample_init. Has no effect
  *            if sample object is already in the uninitialized state.
- *            After sample_reset has been called, sample_init can 
+ *            After sample_reset has been called, sample_init can
  *            be used to initialize sample object again, possibly with
  *            different input parameters.
  * Arguments: s - Pointer to sample struct to be reset.

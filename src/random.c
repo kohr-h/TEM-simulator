@@ -1,5 +1,5 @@
 /*
- * Copyright 2008-2010, Hans Rullgard, Stockholm University and 
+ * Copyright 2008-2010, Hans Rullgard, Stockholm University and
  * Lars-Goran Ofverstedt, Karolinska Institute
  *
  * This file is part of TEM Simulator.
@@ -34,8 +34,8 @@ double rand_uniform(double a, double b){
 /****************************************************************************
  *
  * rand_poisson
- * This implementation of poisson random variable follows 
- * the algorithm developed in 
+ * This implementation of poisson random variable follows
+ * the algorithm developed in
  * J. H. Ahrens, U. Dieter, Computer generation of poisson deviates from
  * modified normal distributions, ACM Transactions on Mathematical
  * Software, vol. 8, no. 2, June 1982, 163--179.
